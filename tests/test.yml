@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - hardend-sshd-role
+    - hardenend-sshd-role

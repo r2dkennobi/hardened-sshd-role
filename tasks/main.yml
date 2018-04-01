@@ -1,6 +1,6 @@
 ---
 # tasks file for hardend-sshd-role
-- name : Install sshd
+- name: Install sshd
   apt:
     name: openssh-server
     state: present

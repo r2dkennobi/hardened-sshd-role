@@ -2,7 +2,7 @@
 # defaults file for hardend-sshd-role
 sshd:
   AcceptEnv:
-    - LANG LC_*
+    - "LANG LC_*"
   AddressFamily: any
   AllowAgentForwarding: no
   AllowGroups: []
@@ -17,7 +17,7 @@ sshd:
   # AuthorizedPrincipalsCommandUser:
   # AuthorizedPrincipalsFile:
   # Banner:
-  ChallengeResponseAuthentication: yes
+  ChallengeResponseAuthentication: no
   ChrootDirectory: none
   Ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr
   # Disconnect unresponsive SSH client after ~15 secs
@@ -73,15 +73,15 @@ sshd:
   PidFile: "/var/run/sshd.pid"
   Port: 22
   PrintLastLog: yes
-  PrintMotd: yes
+  PrintMotd: no
   Protocol: 2
   PubkeyAcceptedKeyTypes: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
   PubkeyAuthentication: yes
   # RekeyLimit:
   RevokedKeys: []
   # The next three only apply to protocol version 1
-  # RhostsRSAAuthentication: no
-  # RSAAuthentication: yes
+  RhostsRSAAuthentication: no
+  RSAAuthentication: yes
   # ServerKeyBits: 1024
   # StreamLocalBindMask:
   # StreamLocalBindUplink:
