@@ -1,0 +1,7 @@
+---
+# handlers file for hardend-sshd-role
+- name: Restart sshd
+  systemd:
+    name: sshd
+    enabled: yes
+    state: restarted

@@ -1,0 +1,3 @@
+---
+# vars file for hardend-sshd-role
+sshd_config_basedir: "/etc/ssh"
