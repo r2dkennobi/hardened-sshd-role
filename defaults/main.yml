@@ -3,11 +3,11 @@
 sshd:
   AcceptEnv:
     - "LANG LC_*"
-  AddressFamily: any
+  # AddressFamily: any
   AllowAgentForwarding: no
   AllowGroups: []
-  AllowTcpForwarding: yes
-  AllowStreamLocalForwarding: yes
+  # AllowTcpForwarding: yes
+  # AllowStreamLocalForwarding: yes
   AllowUsers: []
   AuthenticationMethods: publickey,keyboard-interactive
   # AuthorizedKeysCommand:
@@ -24,20 +24,20 @@ sshd:
   ClientAliveCountMax: 3
   ClientAliveInterval: 15
   Compression: yes
-  DebianBanner: yes
+  # DebianBanner: yes
   DenyGroups: []
   DenyUsers: []
   FingerprintHash: sha256
   ForceCommand: none
   # GatewayPorts:
-  GSSAPIAuthentication: no
-  GSSAPIKeyExchange: no
-  GSSAPICleanupCredentials: yes
-  GSSAPIStrictAcceptorCheck: yes
-  GSSAPIStoreCredentialsOnRekey: no
+  # GSSAPIAuthentication: no
+  # GSSAPIKeyExchange: no
+  # GSSAPICleanupCredentials: yes
+  # GSSAPIStrictAcceptorCheck: yes
+  # GSSAPIStoreCredentialsOnRekey: no
   HostbasedAcceptedKeyTypes: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
   HostbasedAuthentication: no
-  HostbasedUsesNameFromPacketOnly: no
+  # HostbasedUsesNameFromPacketOnly: no
   # HostCertificate:
   HostKey:
     - /etc/ssh/ssh_host_ed25519_key
@@ -46,7 +46,7 @@ sshd:
   HostKeyAlgorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
   IgnoreRhosts: yes
   IgnoreUserKnownHosts: no
-  IPQoS: lowdelay throughput
+  # IPQoS: lowdelay throughput
   KbdInteractiveAuthentication: yes
   # KerberosAuthentication:
   # KerberosGetAFSToken:
@@ -70,7 +70,7 @@ sshd:
   PermitTTY: yes
   PermitUserEnvironment: no
   PermitUserRC: yes
-  PidFile: "/var/run/sshd.pid"
+  # PidFile: "/var/run/sshd.pid"
   Port: 22
   PrintLastLog: yes
   PrintMotd: no
@@ -92,12 +92,12 @@ sshd:
   TCPKeepAlive: yes
   TrustedUserCAKeys: []
   UseDNS: no
-  UseLogin: no
+  # UseLogin: no
   UsePAM: yes
   # Note: Following option was deprecated as of 7.5
   UsePrivilegeSeparation: sandbox
-  VersionAddendum: none
+  # VersionAddendum: none
   X11DisplayOffset: 10
   X11Forwarding: no
   X11UseLocalhost: yes
-  XAuthLocation: "/usr/bin/xauth"
+  # XAuthLocation: "/usr/bin/xauth"
