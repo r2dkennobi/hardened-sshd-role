@@ -1,5 +1,6 @@
 ---
 # defaults file for hardend-sshd-role
+sshd_config_prefix: "/etc/ssh"
 sshd:
   AcceptEnv:
     - "LANG LC_*"
