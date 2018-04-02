@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  remote_user: root
+  vars:
+    sshd_config_prefix: "{{ ansible_env.HOME }}"
+  tasks:
+    - include_role:
+        name: hardenend-sshd-role

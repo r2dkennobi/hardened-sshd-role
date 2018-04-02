@@ -1,0 +1,133 @@
+# {{ ansible_managed }}
+# See the sshd_config(5) manpage for details
+{% macro render_option (key, value) %}
+{%  if value is defined %}
+{%    if value is sameas true %}
+{{ key }} yes
+{%    elif value is sameas false %}
+{{ key }} no
+{%    elif value is string or value is number %}
+{{ key }} {{ value }}
+{%    else %}
+{%      for i in value %}
+{{ key }} {{ i }}
+{%      endfor %}
+{%    endif %}
+{%  endif %}
+{% endmacro %}
+## Options in alphabetical order (same as the sshd_config(5) manpage)
+# Allow client to pass locale environment variables
+{{ render_option("AcceptEnv", sshd["AcceptEnv"]) -}}
+{{ render_option("AddressFamily", sshd["AddressFamily"]) -}}
+{{ render_option("AllowAgentForwarding", sshd["AllowAgentForwarding"]) -}}
+{{ render_option("AllowGroups", sshd["AllowGroups"]) -}}
+{{ render_option("AllowTcpForwarding", sshd["AllowTcpForwarding"]) -}}
+{{ render_option("AllowStreamLocalForwarding", sshd["AllowStreamLocalForwarding"]) -}}
+{{ render_option("AllowUsers", sshd["AllowUsers"]) -}}
+{{ render_option("AuthenticationMethods", sshd["AuthenticationMethods"]) -}}
+{{ render_option("AuthorizedKeysCommand", sshd["AuthorizedKeysCommand"]) -}}
+{{ render_option("AuthorizedKeysCommandUser", sshd["AuthorizedKeysCommandUser"]) -}}
+{{ render_option("AuthorizedKeysFile", sshd["AuthorizedKeysFile"]) -}}
+{{ render_option("AuthorizedPrincipalsCommand", sshd["AuthorizedPrincipalsCommand"]) -}}
+{{ render_option("AuthorizedPrincipalsCommandUser", sshd["AuthorizedPrincipalsCommandUser"]) -}}
+{{ render_option("AuthorizedPrincipalsFile", sshd["AuthorizedPrincipalsFile"]) -}}
+{{ render_option("Banner", sshd["Banner"]) -}}
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+{{ render_option("ChallengeResponseAuthentication", sshd["ChallengeResponseAuthentication"]) -}}
+{{ render_option("ChrootDirectory", sshd["ChrootDirectory"]) -}}
+{{ render_option("Ciphers", sshd["Ciphers"]) -}}
+{{ render_option("ClientAliveCountMax", sshd["ClientAliveCountMax"]) -}}
+{{ render_option("ClientAliveInterval", sshd["ClientAliveInterval"]) -}}
+{{ render_option("Compression", sshd["Compression"]) -}}
+{{ render_option("DebianBanner", sshd["DebianBanner"]) -}}
+{{ render_option("DenyGroups", sshd["DenyGroups"]) -}}
+{{ render_option("DenyUsers", sshd["DenyUsers"]) -}}
+{{ render_option("FingerprintHash", sshd["FingerprintHash"]) -}}
+{{ render_option("ForceCommand", sshd["ForceCommand"]) -}}
+{{ render_option("GatewayPorts", sshd["GatewayPorts"]) -}}
+# GSSAPI options
+{{ render_option("GSSAPIAuthentication", sshd["GSSAPIAuthentication"]) -}}
+{{ render_option("GSSAPIKeyExchange", sshd["GSSAPIKeyExchange"]) -}}
+{{ render_option("GSSAPICleanupCredentials", sshd["GSSAPICleanupCredentials"]) -}}
+{{ render_option("GSSAPIStrictAcceptorCheck", sshd["GSSAPIStrictAcceptorCheck"]) -}}
+{{ render_option("GSSAPIStoreCredentialsOnRekey", sshd["GSSAPIStoreCredentialsOnRekey"]) -}}
+{{ render_option("HostbasedAcceptedKeyTypes", sshd["HostbasedAcceptedKeyTypes"]) -}}
+{{ render_option("HostbasedAuthentication", sshd["HostbasedAuthentication"]) -}}
+{{ render_option("HostbasedUsesNameFromPacketOnly", sshd["HostbasedUsesNameFromPacketOnly"]) -}}
+{{ render_option("HostCertificate", sshd["HostCertificate"]) -}}
+{{ render_option("HostKey", sshd["HostKey"]) -}}
+{{ render_option("HostKeyAgent", sshd["HostKeyAgent"]) -}}
+{{ render_option("HostKeyAlgorithms", sshd["HostKeyAlgorithms"]) -}}
+# Don't read the user's ~/.rhosts and ~/.shosts files
+{{ render_option("IgnoreRhosts", sshd["IgnoreRhosts"]) -}}
+# Don't trust ~/.ssh/known_hosts for RhostsRSAAuthentication
+{{ render_option("IgnoreUserKnownHosts", sshd["IgnoreUserKnownHosts"]) -}}
+{{ render_option("IPQoS", sshd["IPQoS"]) -}}
+{{ render_option("KbdInteractiveAuthentication", sshd["KbdInteractiveAuthentication"]) -}}
+# Kerberos options
+{{ render_option("KerberosAuthentication", sshd["KerberosAuthentication"]) -}}
+{{ render_option("KerberosGetAFSToken", sshd["KerberosGetAFSToken"]) -}}
+{{ render_option("KerberosOrLocalPasswd", sshd["KerberosOrLocalPasswd"]) -}}
+{{ render_option("KerberosTicketCleanup", sshd["KerberosTicketCleanup"]) -}}
+{{ render_option("KexAlgorithms", sshd["KexAlgorithms"]) -}}
+{{ render_option("KeyRegenerationInterval", sshd["KeyRegenerationInterval"]) -}}
+# Use these options to restrict which interfaces/protocols sshd will bind to
+{{ render_option("ListenAddress", sshd["ListenAddress"]) -}}
+{{ render_option("LoginGraceTime", sshd["LoginGraceTime"]) -}}
+{{ render_option("LogLevel", sshd["LogLevel"]) -}}
+{{ render_option("MACs", sshd["MACs"]) -}}
+{{ render_option("MaxAuthTries", sshd["MaxAuthTries"]) -}}
+{{ render_option("MaxSessions", sshd["MaxSessions"]) -}}
+{{ render_option("MaxStartups", sshd["MaxStartups"]) -}}
+# Change to no to disable tunnelled clear text passwords
+{{ render_option("PasswordAuthentication", sshd["PasswordAuthentication"]) -}}
+# To enable empty passwords, change to yes (NOT RECOMMENDED)
+{{ render_option("PermitEmptyPasswords", sshd["PermitEmptyPasswords"]) -}}
+{{ render_option("PermitOpen", sshd["PermitOpen"]) -}}
+{{ render_option("PermitRootLogin", sshd["PermitRootLogin"]) -}}
+{{ render_option("PermitTunnel", sshd["PermitTunnel"]) -}}
+{{ render_option("PermitTTY", sshd["PermitTTY"]) -}}
+{{ render_option("PermitUserEnvironment", sshd["PermitUserEnvironment"]) -}}
+{{ render_option("PermitUserRC", sshd["PermitUserRC"]) -}}
+{{ render_option("PidFile", sshd["PidFile"]) -}}
+# What ports, IPs and protocols we listen for
+{{ render_option("Port", sshd["Port"]) -}}
+{{ render_option("PrintLastLog", sshd["PrintLastLog"]) -}}
+{{ render_option("PrintMotd", sshd["PrintMotd"]) -}}
+{{ render_option("Protocol", sshd["Protocol"]) -}}
+{{ render_option("PubkeyAcceptedKeyTypes", sshd["PubkeyAcceptedKeyTypes"]) -}}
+{{ render_option("PubkeyAuthentication", sshd["PubkeyAuthentication"]) -}}
+{{ render_option("RekeyLimit", sshd["RekeyLimit"]) -}}
+{{ render_option("RevokedKeys", sshd["RevokedKeys"]) -}}
+# For this to work you will also need host keys in /etc/ssh_known_hosts
+{{ render_option("RhostsRSAAuthentication", sshd["RhostsRSAAuthentication"]) -}}
+{{ render_option("RSAAuthentication", sshd["RSAAuthentication"]) -}}
+# Lifetime and size of ephemeral version 1 server key
+{{ render_option("ServerKeyBits", sshd["ServerKeyBits"]) -}}
+{{ render_option("StreamLocalBindMask", sshd["StreamLocalBindMask"]) -}}
+{{ render_option("StreamLocalBindUplink", sshd["StreamLocalBindUplink"]) -}}
+{{ render_option("StrictModes", sshd["StrictModes"]) -}}
+{{ render_option("Subsystem", sshd["Subsystem"]) -}}
+{{ render_option("SyslogFacility", sshd["SyslogFacility"]) -}}
+{{ render_option("TCPKeepAlive", sshd["TCPKeepAlive"]) -}}
+{{ render_option("TrustedUserCAKeys", sshd["TrustedUserCAKeys"]) -}}
+{{ render_option("UseDNS", sshd["UseDNS"]) -}}
+{{ render_option("UseLogin", sshd["UseLogin"]) -}}
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+{{ render_option("UsePAM", sshd["UsePAM"]) -}}
+#Privilege Separation is turned on for security. Deprecated as of 7.5
+{{ render_option("UsePrivilegeSeparation", sshd["UsePrivilegeSeparation"]) -}}
+{{ render_option("VersionAddendum", sshd["VersionAddendum"]) -}}
+{{ render_option("X11DisplayOffset", sshd["X11DisplayOffset"]) -}}
+{{ render_option("X11Forwarding", sshd["X11Forwarding"]) -}}
+{{ render_option("X11UseLocalhost", sshd["X11UseLocalhost"]) -}}
+{{ render_option("XAuthLocation", sshd["XAuthLocation"]) -}}

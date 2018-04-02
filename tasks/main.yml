@@ -1,0 +1,20 @@
+---
+# tasks file for hardend-sshd-role
+- name: Install sshd
+  apt:
+    name: openssh-server
+    state: latest
+  when: ansible_os_family == 'Debian'
+
+- name: Install sshd
+  pacman:
+    name: openssh
+    state: present
+  when: ansible_os_family == 'Archlinux'
+
+- name: Configure sshd
+  template:
+    src: sshd_config.j2
+    dest: "{{ sshd_config_prefix }}/sshd_config"
+    validate: "/usr/sbin/sshd -t -f %s"
+  notify: Restart sshd
